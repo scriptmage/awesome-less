@@ -1,0 +1,188 @@
+#gradient {
+  .vertical (@startColor: #EEE, @endColor: #FFF) {
+    background: mix(@startColor, @endColor, 60%);
+    background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+    background: -webkit-linear-gradient(top, @startColor, @endColor);
+    background:    -moz-linear-gradient(top, @startColor, @endColor);
+    background:      -o-linear-gradient(top, @startColor, @endColor);
+    background:         linear-gradient(top, @startColor, @endColor);
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='%d', EndColorStr='%d')", @startColor, @endColor));
+  }
+  .vertical-s (@c1: #666, @cs1: 0%, @c2: #000, @cs2: 100%) {
+    background: @c2; /* Old browsers */
+    background: -moz-linear-gradient(top, @c1 @cs1, @c2 @cs2); /* FF 3.6+ */
+    background: -ms-linear-gradient(top, @c1 @cs1, @c2 @cs2); /* IE10 */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@cs1, @c1), color-stop(@cs2, @c2)); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(top, @c1 @cs1, @c2 @cs2); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(top, @c1 @cs1, @c2 @cs2); /* Opera 11.10 */
+    background: linear-gradient(top, @c1 @cs1, @c2 @cs2); /* the standard */
+  }
+  .vertical-3 (@c1: #666, @cs1: 0%, @c2: #333, @cs2: 50%, @c3: #000, @cs3: 100% ) {
+    background: @c3; /* Old browsers */
+    background: -moz-linear-gradient(top, @c1 @cs1, @c2 @cs2, @c3 @cs3); /* FF 3.6+ */
+    background: -ms-linear-gradient(top, @c1 @cs1, @c2 @cs2, @c3 @cs3); /* IE10 */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@cs1, @c1), color-stop(@cs2, @c2), color-stop(@cs3, @c3)); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(top, @c1 @cs1, @c2 @cs2, @c3 @cs3); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(top, @c1 @cs1, @c2 @cs2, @c3 @cs3); /* Opera 11.10 */
+    background: linear-gradient(top, @c1 @cs1, @c2 @cs2, @c3 @cs3); /* the standard */
+  }
+  .horizontal (@c1: #666, @cs1: 0%, @c2: #000, @cs2: 100%) {
+    background: @c2; /* Old browsers */
+    background: -moz-linear-gradient(left, @c1 @cs1, @c2 @cs2); /* FF 3.6+ */
+    background: -ms-linear-gradientleft; /* IE10 */
+    background: -webkit-gradient(linear, left top, right top, color-stop(@cs1, @c1), color-stop(@cs2, @c2)); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(left, @c1 @cs1, @c2 @cs2); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(left, @c1 @cs1, @c2 @cs2); /* Opera 11.10 */
+    background: linear-gradient(left, @c1 @cs1, @c2 @cs2); /* the standard */
+  }
+  .horizontal-3 (@c1: #666, @cs1: 0%, @c2: #333, @cs2: 50%, @c3: #000, @cs3: 100% ) {
+    background: @c3; /* Old browsers */
+    background: -moz-linear-gradient(left, @c1 @cs1, @c2 @cs2, @c3 @cs3); /* FF 3.6+ */
+    background: -ms-linear-gradientleft; /* IE10 */
+    background: -webkit-gradient(linear, left top, right top, color-stop(@cs1, @c1), color-stop(@cs2, @c2), color-stop(@cs3, @c3)); /* Safari 4+, Chrome 2+ */
+    background: -webkit-linear-gradient(left, @c1 @cs1, @c2 @cs2, @c3 @cs3); /* Safari 5.1+, Chrome 10+ */
+    background: -o-linear-gradient(left, @c1 @cs1, @c2 @cs2, @c3 @cs3); /* Opera 11.10 */
+    background: linear-gradient(left, @c1 @cs1, @c2 @cs2, @c3 @cs3); /* the standard */
+  }
+}
+
+#rounded {
+  .all (@value: 2px 5px 2px 5px) when (isstring(@value)) {
+    -webkit-border-radius: @value;
+    border-radius: @value;
+  }
+
+  .all (@radius: 2) when (isnumber(@radius)) {
+    -webkit-border-radius: @radius * 1px;
+    border-radius: @radius * 1px;
+  }
+
+  .top (@radius: 4) when (isnumber(@radius)) {
+    .all(0);
+    -webkit-border-top-left-radius: @radius * 1px;
+    border-top-left-radius: @radius * 1px;
+
+    -webkit-border-top-right-radius: @radius * 1px;
+    border-top-right-radius: @radius * 1px;
+  }
+
+  .right (@radius: 4) when (isnumber(@radius)) {
+    .all(0);
+    -webkit-border-top-right-radius: @radius * 1px;
+    border-top-right-radius: @radius * 1px;
+
+    -webkit-border-bottom-right-radius: @radius * 1px;
+    border-bottom-right-radius: @radius * 1px;
+  }
+
+  .bottom (@radius: 4) when (isnumber(@radius)) {
+    .all(0);
+    -webkit-border-bottom-right-radius: @radius * 1px;
+    border-bottom-right-radius: @radius * 1px;
+
+    -webkit-border-bottom-left-radius: @radius * 1px;
+    border-bottom-left-radius: @radius * 1px;
+  }
+
+  .left (@radius: 4) when (isnumber(@radius)) {
+    .all(0);
+    -webkit-border-top-left-radius: @radius * 1px;
+    border-top-left-radius: @radius * 1px;
+
+    -webkit-border-bottom-left-radius: @radius * 1px;
+    border-bottom-left-radius: @radius * 1px;
+  }
+}
+
+#box {
+  .shadow-init (@all) {
+    -webkit-box-shadow: @all;
+    -moz-box-shadow: @all;
+    box-shadow: @all;
+  }
+
+  .shadow (@values: "1px 1px 2px #000, 0 0 4px #fff, inset 1px 3px 2px #000") { /* for multi values */
+    -webkit-box-shadow: e(@values);
+    -moz-box-shadow: e(@values);
+    box-shadow: e(@values);
+  }
+
+  .shadow (@option, @values) when (@option = in) {
+    .shadow-init(inset @values);
+  }
+
+  .shadow (@option, @values) when (@option = out) {
+    .shadow-init(@values);
+  }
+
+  .shadow (@parameters, @color, @alpha) when (isnumber(@alpha)) {
+    .shadow-init(@parameters fade(@color, @alpha));
+  }
+}
+
+#rotate {
+  .deg (@degrees: 5) when (isnumber(@degrees)) {
+    -webkit-transform: rotate(~"@{degrees}deg");
+    -moz-transform: rotate(~"@{degrees}deg");
+    -ms-transform: rotate(~"@{degrees}deg");
+    -o-transform: rotate(~"@{degrees}deg");
+    transform: rotate(~"@{degrees}deg");
+  }
+
+  .3d (@x: 0, @y: 0, @z: 0, @degrees: 120) when (isnumber(@x)) and (isnumber(@y)) and (isnumber(@z)) and (isnumber(@degrees)) {
+    -webkit-transform: rotate3d(@x, @y, @z, ~"@{degrees}deg");
+    -moz-transform: rotate3d(@x, @y, @z, ~"@{degrees}deg");
+    -ms-transform: rotate3d(@x, @y, @z, ~"@{degrees}deg");
+    -o-transform: rotate3d(@x, @y, @z, ~"@{degrees}deg");
+    transform: rotate3d(@x, @y, @z, ~"@{degrees}deg");
+  }
+
+  .x (@degrees: 120) when (isnumber(@degrees)) {
+    -webkit-transform: e(%('rotateX(%d)', ~"@{degrees}deg"));
+    -moz-transform: e(%('rotateX(%d)', ~"@{degrees}deg"));
+    -ms-transform: e(%('rotateX(%d)', ~"@{degrees}deg"));
+    -o-transform: e(%('rotateX(%d)', ~"@{degrees}deg"));
+    transform: e(%('rotateX(%d)', ~"@{degrees}deg"));
+  }
+
+  .y (@degrees: 10) when (isnumber(@degrees)) {
+    -webkit-transform: e(%('rotateY(%d)', ~"@{degrees}deg"));
+    -moz-transform: e(%('rotateY(%d)', ~"@{degrees}deg"));
+    -ms-transform: e(%('rotateY(%d)', ~"@{degrees}deg"));
+    -o-transform: e(%('rotateY(%d)', ~"@{degrees}deg"));
+    transform: e(%('rotateY(%d)', ~"@{degrees}deg"));
+  }
+
+  .z (@degrees: 10) when (isnumber(@degrees)) {
+    -webkit-transform: e(%('rotateZ(%d)', ~"@{degrees}deg"));
+    -moz-transform: e(%('rotateZ(%d)', ~"@{degrees}deg"));
+    -ms-transform: e(%('rotateZ(%d)', ~"@{degrees}deg"));
+    -o-transform: e(%('rotateZ(%d)', ~"@{degrees}deg"));
+    transform: e(%('rotateZ(%d)', ~"@{degrees}deg"));
+  }
+}
+
+.golden-inc(@value: 1) {
+  @golden: @value*1.618034;
+}
+
+.golden-dec(@value: 1) {
+  @golden: @value/1.618034;
+}
+
+.opacity(@opacity: 0.5) {
+  -moz-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  -webkit-opacity: @opacity;
+  opacity: @opacity;
+  @opperc: @opacity * 100;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+  filter: ~"alpha(opacity=@{opperc})";
+}
+
+.hidden() {
+  display: none !important;
+  visibility: hidden !important;
+}
+@import "as-fb.less";
+@import "as-vars.less";
